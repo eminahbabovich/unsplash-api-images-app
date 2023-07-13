@@ -3,9 +3,13 @@ import { useGlobalContext } from '../Context'
 
 const SearchForm = () => {
   const { setSearchValue } = useGlobalContext()
+
+  // Just a local state
   const [value, setValue] = useState('')
+
   const handleSubmit = (e) => {
     e.preventDefault()
+    console.log(e)
     if (!value) return
     setSearchValue(value)
   }

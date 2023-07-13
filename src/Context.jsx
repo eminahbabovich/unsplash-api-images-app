@@ -8,7 +8,6 @@ const getInitialDarkMode = () => {
   const prefersDarkMode = window.matchMedia(
     '(prefers-color-scheme:dark)'
   ).matches
-  console.log(prefersDarkMode)
   const storedDarkMode = localStorage.getItem('isDarkTheme') === 'true'
 
   return storedDarkMode || prefersDarkMode
@@ -21,7 +20,7 @@ const Context = ({ children }) => {
   const toggleDarkTheme = () => {
     const newDarkTheme = !isDarkTheme
     setIsDarkTheme(newDarkTheme)
-    localStorage.setItem('isDarkTheme', JSON.stringify(newDarkTheme))
+    localStorage.setItem('isDarkTheme', newDarkTheme)
   }
   // Everytime isDarkTheme value changes useEffect functionality will
   // check for its value and based on it will update the class of the body.
